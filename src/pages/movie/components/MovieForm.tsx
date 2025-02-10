@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { Movie } from "../../../services/api/types";
+import { AGE_LIMITS } from "../../../consts";
 
 type Props = {
   handleSubmit: (movie: Movie) => void;
@@ -77,11 +78,11 @@ const MovieForm = ({
         >
           <option value="">Please select an option...</option>
 
-          <option value="0">Family</option>
-          <option value="6">6</option>
-          <option value="12">12</option>
-          <option value="16">16</option>
-          <option value="18">18</option>
+          {AGE_LIMITS.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.text}
+            </option>
+          ))}
         </select>
         {isError && <div>Something went wrong...</div>}
         <button type="submit" disabled={isPending}>
