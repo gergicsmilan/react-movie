@@ -1,5 +1,5 @@
-function App() {
-  return <div>Hello</div>;
-}
+import BrowserSwitch from "./routes/BrowserSwitch";
+
+const App = () => <BrowserSwitch />;
 
 export default App;
